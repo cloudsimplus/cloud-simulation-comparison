@@ -1,0 +1,40 @@
+#A scenario where each Vm and each Cloudlet has its exclusive PEs to run.
+#This way there is not interference in their execution.
+datacenters:
+  - !datacenter
+    vmAllocationPolicy: Simple
+    vmMigration: enabled
+    hosts:
+      - !host
+        amount: 2
+        ram: 1000000
+        bw: 100000
+        storage: 40000
+        pes: 8
+        mips: 50000
+        vmScheduler: TimeShared
+        ramProvisioner: Simple
+        bwProvisioner: Simple
+        peProvisioner: Simple
+customers:
+  - !customer
+    vms:
+      - !vm
+        amount: 4
+        size: 500
+        pes: 4
+        mips: 1000
+        ram: 2000
+        bw: 1000
+        cloudletScheduler: SpaceShared
+        vmm: Xen
+    cloudlets:
+      - !cloudlet
+        amount: 8
+        pes: 2
+        length: 10000
+        fileSize: 50
+        outputSize: 70
+        utilizationModelCpu: Full
+        utilizationModelRam: Full
+        utilizationModelBw: Full

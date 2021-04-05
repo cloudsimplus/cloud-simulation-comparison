@@ -1,0 +1,84 @@
+:numbered:
+
+= Performance Comparison of CloudSim and CloudSim Plus Frameworks
+
+It uses https://github.com/manoelcampos/cloudsim-plus-automation[CloudSim Plus Automation]
+to run the same simulation scenarios (defined into a YAML file) and compare performance results
+of both frameworks.
+
+Currently it contains just a link:run.sh[script file] which downloads the jar packages
+from the projects mentioned above and allows executing the YAML files in CloudSim and CloudSim Plus.
+
+== Usage
+
+Just execute this link:run.sh[script] into a terminal to see the available options.
+
+== Some Java Profiler Tools wich can be used
+
+=== Command line tools included with the OS or JDK
+
+==== Java Virtual Machine Statistics Monitoring Tool (jstat)
+
+http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html[jstat] collects
+several metrics for a running application. Requires the PID of the app (vmid)
+which can be got using `jps` command.
+
+The following example gets GC memory stats (in KB) for app with PID 4214,
+every 1000ms, collection data 10 times: 
+
+[source,bash]
+----
+jstat -gccapacity 4214 1000 10
+----
+
+To get the PID dynamically using jsp and grep, considering the name of the running java application:
+
+[source,bash]
+----
+jstat -gccapacity `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d " " -f 1` 1000 10
+
+----
+
+The jstat homepage show the documentation for parameters and presented results.
+
+==== Memory Map (jmap)
+
+http://docs.oracle.com/javase/7/docs/technotes/tools/share/jmap.html[jmap]
+collects specific information about memory usage in a more understandable way
+than jstat.
+
+The example below shows the total memory usage for objects in the heap (in bytes)
+
+[source,bash]
+----
+jmap -histo `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d " " -f 1` | (head -n2 && tail -n1) 
+----
+
+The example below shows heap information for a running java app.
+
+[source,bash]
+----
+jmap -heap `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d " " -f 1`
+----
+
+=== Linux/macOS command line tools
+
+https://dzone.com/articles/java-memory-and-cpu-monitoring-tools-and-technique[This article shows how to use some OS tools]
+
+ps -p `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d &quot; &quot; -f 1` -o %cpu,%mem,cmd
+
+=== External command line tools
+
+==== Java monitoring for the command-line
+
+https://github.com/patric-r/jvmtop[jtop] is a top-like command, but is out-of-date.
+It shows CPU usage and head memory usage in MB (HPCUR and HPMAX),
+but presented CPU values doesn't match with more accurate tools such as
+macOS Monitor, top, and ps.
+
+==== ptop
+
+=== Graphic Tools
+
+* https://visualvm.github.io[VisualVM]
+* jconsole: included in the JDK (opened from the terminal)
