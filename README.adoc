@@ -18,6 +18,8 @@ Just execute this link:run.sh[script] into a terminal as below to see the availa
 ./run.sh -h
 ----
 
+Running the script with no arguments will start building the simulation scenarios using default options.
+
 == Some Java Profiler Tools wich can be used
 
 === Command line tools included with the OS or JDK
