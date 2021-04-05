@@ -11,7 +11,12 @@ from the projects mentioned above and allows executing the YAML files in CloudSi
 
 == Usage
 
-Just execute this link:run.sh[script] into a terminal to see the available options.
+Just execute this link:run.sh[script] into a terminal as below to see the available options:
+
+[source, bash]
+----
+./run.sh -h
+----
 
 == Some Java Profiler Tools wich can be used
 
@@ -36,7 +41,6 @@ To get the PID dynamically using jsp and grep, considering the name of the runni
 [source,bash]
 ----
 jstat -gccapacity `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d " " -f 1` 1000 10
-
 ----
 
 The jstat homepage show the documentation for parameters and presented results.
