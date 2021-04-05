@@ -71,7 +71,10 @@ jmap -heap `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d "
 
 https://dzone.com/articles/java-memory-and-cpu-monitoring-tools-and-technique[This article shows how to use some OS tools]
 
+[source,bash]
+----
 ps -p `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d &quot; &quot; -f 1` -o %cpu,%mem,cmd
+----
 
 === External command line tools
 
