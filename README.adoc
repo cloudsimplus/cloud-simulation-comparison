@@ -22,6 +22,11 @@ Running the script with no arguments will start building the simulation scenario
 
 == Some Java Profiler Tools wich can be used
 
+Here, it's shown a list of some tools and commands you can use to assess the performance
+of the experiments while they are executing.
+Using these tools you can check CPU utilization, memory consumption
+and even the functions in your simulations that are using the CPU the most (check VisualVM section below).
+
 === Command line tools included with the OS or JDK
 
 ==== Java Virtual Machine Statistics Monitoring Tool (jstat)
