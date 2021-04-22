@@ -14,7 +14,7 @@ fi
 
 manual() {
     echo "This script creates and runs a simulation scenario from a YML file in CloudSim and/or CloudSim Plus."
-    echo "The scripts uses the jar files from CloudSim Automation and CloudSim Plus Automation projects"
+    echo "It uses the jar files from CloudSim Automation and CloudSim Plus Automation projects"
     echo "to automate the creation and execution of simulation scenarios in both frameworks."
     echo "It tries to execute the jar files inside the Automation projects from the directory"
     echo "defined by the JAR_DIRS variable in the script."
@@ -24,7 +24,7 @@ manual() {
     echo -e "\tSimulationScenarioYmlFile: path for a YML file containing the simulation scenario to be built and run"
     echo -e "\t\tIf omitted, default files defined inside the script will be loaded"
     echo -e "\tFramework: the framework to run the cloud simulation, either cloudsim or cloudsimplus"
-    exit -1
+    exit 0
 }
 
 #Download CloudSim Automation or CloudSim Plus Automation from GitHub.
