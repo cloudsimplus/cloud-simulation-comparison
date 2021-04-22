@@ -87,7 +87,7 @@ ps -p `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d &quot;
 
 https://github.com/patric-r/jvmtop[jtop] is a top-like command, but is out-of-date.
 It shows CPU usage and heap memory usage in MB (HPCUR and HPMAX),
-but presented CPU values doesn't match with more accurate tools such as
+but presented CPU values don't match with more accurate tools such as
 macOS Monitor, top, and ps.
 
 ==== ptop
