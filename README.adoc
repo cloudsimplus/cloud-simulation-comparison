@@ -20,7 +20,7 @@ Just execute this link:run.sh[script] into a terminal as below to see the availa
 
 Running the script with no arguments will start building the simulation scenarios using default options.
 
-== Some Java Profiler Tools wich can be used
+== Some Java Profiler Tools which can be used
 
 Here, it's shown a list of some tools and commands you can use to assess the performance
 of the experiments while they are executing.
@@ -78,7 +78,7 @@ https://dzone.com/articles/java-memory-and-cpu-monitoring-tools-and-technique[Th
 
 [source,bash]
 ----
-ps -p `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d &quot; &quot; -f 1` -o %cpu,%mem,cmd
+ps -p `jps | grep CloudSimAutomation-0.4.0-with-dependencies.jar | cut -d " " -f 1` -o %cpu,%mem,cmd
 ----
 
 === External command line tools
